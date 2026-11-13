@@ -51,7 +51,7 @@ def user_processing():
         }
 
     @task
-    def save_user(user):
+    def store_user(user):
         hook = PostgresHook(postgres_conn_id="postgres")
         hook.insert_rows(
             table="users",
@@ -61,6 +61,6 @@ def user_processing():
 
     user = process_user(extract_user(is_api_available()))
     create_table >> user
-    save_user(user)
+    store_user(user)
 
 
