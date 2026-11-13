@@ -64,3 +64,4 @@ def user_processing():
     store_user(user)
 
 
+user_processing()
